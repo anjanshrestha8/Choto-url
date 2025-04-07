@@ -18,8 +18,9 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const shortUrl_1 = __importDefault(require("./routes/shortUrl"));
 const url_schema_1 = __importDefault(require("./models/url.schema"));
 dotenv_1.default.config();
+const connectionString = process.env.DB_CONNECTION || "";
 mongoose_1.default
-    .connect("mongodb+srv://ajnstha2003:anjanshrestha8@url.smuzi0g.mongodb.net/url")
+    .connect(connectionString)
     .then(() => {
     console.log("MongoDb is connected successfully.....");
 })

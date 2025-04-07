@@ -5,10 +5,10 @@ import shortUrl from "./routes/shortUrl";
 import urlModel from "./models/url.schema";
 dotenv.config();
 
+const connectionString = process.env.DB_CONNECTION || "";
+
 mongoose
-  .connect(
-    "mongodb+srv://ajnstha2003:anjanshrestha8@url.smuzi0g.mongodb.net/url"
-  )
+  .connect(connectionString)
   .then(() => {
     console.log("MongoDb is connected successfully.....");
   })

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <title>Choto URL Links</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <h1 class="mb-4">Choto Url Links</h1>
+
+      <form action="/api/short" method="POST" class="my-4">
+        <div class="mb-3">
+          <label for="longUrl" class="form-label">Long Url</label>
+          <input
+            type="url"
+            class="form-control"
+            name="longUrl"
+            id="longUrl"
+            placeholder="Enter the full URL"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Create Short URL</button>
+      </form>
+
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">Full URL</th>
+            <th scope="col">Short URL</th>
+            <th scope="col">Clicks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="https://youtube.com" target="_blank"
+                >https://youtube.com</a
+              >
+            </td>
+            <td><a href="https://y.com" target="_blank">https://y.com</a></td>
+            <td>1234</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

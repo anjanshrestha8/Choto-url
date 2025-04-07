@@ -8,10 +8,10 @@ export const createUrl = async (
   try {
     const { longUrl } = request.body;
     console.log(longUrl);
-    const existingUrl = await urlModel.findOne({ longUrl });
-
-    if (existingUrl) {
-      return response.render("index", { shortUrl: existingUrl.shortUrl });
+    const shortUrls = await urlModel.findOne({ longUrl });
+    console.log("existingdata", shortUrls);
+    if (shortUrls) {
+      return response.render("index", { shortUrls: shortUrls });
     }
 
     const expiryDate = new Date();
@@ -20,8 +20,8 @@ export const createUrl = async (
     const shortUrl = await urlModel.create({ longUrl, expiryDate });
 
     await shortUrl.save();
-
-    response.render("index", { shortUrl });
+    console.log("asfasf", shortUrl);
+    response.redirect("/");
   } catch (error) {
     console.log(error);
     return response
@@ -29,8 +29,3 @@ export const createUrl = async (
       .json({ message: "Something went wrong!!!!", error: error });
   }
 };
-
-export const getUrl = async (
-  request: express.Request,
-  response: express.Request
-) => {};
